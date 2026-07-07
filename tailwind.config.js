@@ -11,9 +11,14 @@ export default {
           // Grises / Estructura
           canvas: '#0F0F0F',     // Fondo general de la app
           surface: '#1A1A1A',    // Fondo de tarjetas, navbar, etc.
+          secondary: '#1E222B',  //Fondo de elementos secundarios, como el terminal
           border: '#232323',     // Bordes sutiles modernos
           hover: '#333333',      // Fondos en eventos hover
           
+          //Typography
+          primaryText: '#F8F9FA',  // Texto principal
+          secondaryText: '#A0A0A0', // Texto secundario
+
           // Azules Profundos
           navy: {
             deep: '#011142',     // Para degradés oscuros atmosféricos

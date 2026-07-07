@@ -39,6 +39,7 @@ To start the production server locally:
 ```bash
 bun run start
 ```
+For architecture and feature development, check the /spec folder.
 
 ## Deploying the project
 
@@ -51,10 +52,11 @@ bun run start
 
 ### Other hosting platforms
 
-- Build the app with `npm run build`
-- Start it with `npm run start`
+- Build the app with `bun run build`
+- Start it with `bun run start`
 - Make sure the host supports Node.js applications
 
 ## Security note
 
 Keep any API keys or sensitive values in environment variables and never commit them to the repository.
+

@@ -73,8 +73,8 @@ src/
 
 ## Visual Style
 
-- **Theme:** Dark mode only — deep dark background (`#0F0F0F`), subtle borders (other main colors are in `/tailwind.config.json` file).
-- **Accent color:** Blue spectrum (`#0231BD`, the other blues are in `/tailwind.config.json` file).
+- **Theme:** Dark mode only — deep dark background (`#0F0F0F`), subtle borders (other main colors are in `/tailwind.config.json` file, in the root of the project).
+- **Accent color:** Blue spectrum (`#0231BD`, the other blues are in `/tailwind.config.json` file, in the root of the project).
 - **Typography:** Single sans-serif — Inter (via Google Fonts or Fontsource).
 - **Layout:** Single-page, scroll-based; responsive from 320 px mobile to 1440 px desktop.
 - **Animations:** Subtle only — hover state transitions, fade-in on scroll; no heavy motion.
