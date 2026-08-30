@@ -53,6 +53,7 @@ src/
 - `bun run test` — runs Vitest tests.
 - `bun run lint` — checks code style with ESLint.
 - `bun build` — compiles for production.
+- `bun install` — install dependencies
 
 ## Data Models / Domains
 
@@ -73,7 +74,7 @@ src/
 
 ## Visual Style
 
-- **Theme:** Dark mode only — deep dark background (`#0F0F0F`), subtle borders (other main colors are in `/tailwind.config.json` file, in the root of the project).
+- **Theme:** Dark mode by default — deep dark background (`#0F0F0F`), subtle borders — with a light mode toggle (`#F8F9FA` background). Colors are defined as CSS variables in `src/app/globals.css` (`:root` for dark, `:root.light` for light).
 - **Accent color:** Blue spectrum (`#0231BD`, the other blues are in `/tailwind.config.json` file, in the root of the project).
 - **Typography:** Single sans-serif — Inter (via Google Fonts or Fontsource).
 - **Layout:** Single-page, scroll-based; responsive from 320 px mobile to 1440 px desktop.

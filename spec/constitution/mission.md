@@ -22,13 +22,13 @@ _Key product features:_
 
 - **Speed over complexity** — A single data load (GitHub API on build), with no over-fetching or unnecessary layers.
 - **Code as the source of truth** — Projects come directly from GitHub; there is no duplicate or out-of-sync content.
-- **Clean and focused visual design** — Dark mode, a single typeface, minimal animations; the focus is on 
+- **Clean and focused visual design** — Dark mode by default with a light mode toggle, a single typeface, minimal animations; the focus is on 
 
 ## What It IS NOT
 
 
 - It is not a blog or a CMS; there are no articles, posts, or content editor.
 - It is not multilingual (v1 is only in Spanish/English mixed depending on the section; no formal i18n).
-- It does not have a light mode; it is dark-only by design.
+- It does not have a light mode by default; it is dark by design, but the whole app, could change to a light mode by switching a button..
 - It is not an application with authentication, its own database, or an admin panel.
 - It does not aim to cover all social media platforms; links are limited to GitHub, LinkedIn, and email.

@@ -20,7 +20,7 @@ Personal developer portfolio for JuanMa594, showcasing GitHub projects, experien
 
 ## Design System
 
-- **Theme:** Dark mode only (no toggle required)
+- **Theme:** Dark mode by default, with a light mode toggle
 - **Style:** Minimal, clean, modern
 - **Typography:** Elms-Sans font 
 - **Color palette:** Dark backgrounds, subtle borders, one accent color, blues
@@ -69,43 +69,45 @@ Personal developer portfolio for JuanMa594, showcasing GitHub projects, experien
 ## Project Structure
 
 ```
-spec/
-├── constitution/            ← project stable rules (they change a bit)
-│   ├── mission.md           ← what´re building and for whom
-│   ├── tech-stack.md        ← conventions, techs and limits
-│   └── roadmap.md           ← feature orders
-└── features/                ← folder by feature
-    └── NNN-feature-name/
-        ├── spec.md          ← what does it do + acceptance criteria
-        ├── plan.md          ← how it´s implemented
-        └── tasks.md         ← tasks checklist
-src/
-├── components/
-│    ├── Navbar.tsx
-│    ├── Hero.tsx
-│    └── Projects/
-│    │  ├── Skills.tsx
-│    │  ├── ProjectCard.tsx
-│    │  ├── ProjectFilters.tsx
-│    │  └── ProjectsSection.tsx
-│    ├── Experience.tsx
-│    └── Contact.tsx
-└── hooks/
-│    ├── useGitHubRepos.ts   # It will call to /api/github instead of api.github.com directamente
-...
-└── types/
-│    ├── github.ts           # GitHub API response types
-└── data/
-│    ├── experience.ts       # static experience data
-│    └── skills.ts           # static skills data
-└── api/                      # Vercel Serverless Functions Folder
-│    ├── github.ts             # Retrieve the repos securely using the hidden TOKEN
-│    └── contact.ts            # Submit the form (Resend / EmailJS)
-└── App.tsx
-└── README.md                 # Oficial README of the project. Update whenever making an update.
-└── .gitignore             # Dependecies/libraries to ignore when making a Git commit
-└── main.tsx
-└── tailwind.config.json
+portfolio
+│  ├──spec/
+│    ├── constitution/            ← project stable rules (they change a bit)
+│    │   ├── mission.md           ← what´re building and for whom
+│    │   ├── tech-stack.md        ← conventions, techs and limits
+│    │   └── roadmap.md           ← feature orders
+│    └── features/                ← folder by feature
+│        └── NNN-feature-name/
+│            ├── spec.md          ← what does it do + acceptance criteria
+│            ├── plan.md          ← how it´s implemented
+│            └── tasks.md         ← tasks checklist
+│  ├──src/
+│    ├── components/
+│    │    ├── Navbar.tsx
+│    │    ├── Hero.tsx
+│    │    └── Projects/
+│    │    │  ├── Skills.tsx
+│    │    │  ├── ProjectCard.tsx
+│    │    │  ├── ProjectFilters.tsx
+│    │    │  └── ProjectsSection.tsx
+│    │    ├── Experience.tsx
+│    │    └── Contact.tsx
+│    ├── hooks/
+│    │    ├── useGitHubRepos.ts   # It will call to /api/github instead of api.github.com directamente
+│    │
+│    ├── types/
+│    │    ├── github.ts           # GitHub API response types
+│    ├── data/
+│    │    ├── experience.ts       # static experience data
+│    │    └── skills.ts           # static skills data
+│    ├── api/                      # Vercel Serverless Functions Folder
+│    │    ├── github.ts             # Retrieve the repos securely using the hidden TOKEN
+│    │    └── contact.ts            # Submit the form (Resend / EmailJS)
+│    ├── App.tsx
+│    └── main.tsx
+│
+│  ├── README.md                 # Oficial README of the project. Update whenever making an update.
+│  ├── .gitignore             # Dependecies/libraries to ignore when making a Git commit
+│  └── tailwind.config.json   # App Theme
 ```
 
 ---

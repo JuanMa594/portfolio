@@ -29,6 +29,29 @@ Other colors are in `/tailwind.config.json`
 - Contains static placeholder text instructing users: `Type /pixel and look what happens...` and `Type /help to see what can you do`.
 - Must be framed within an accessible input box styled dynamically to match the dark/light interface state.
 
+## 3.4 Page Structure & Scroll Behavior
+- **Scroll Philosophy:** The landing page is a single-page application (SPA) layout. The page must support smooth vertical scrolling.
+- **Hero Section:** Serves as the landing view.
+- **Section Reveal (Drafting):** Below the Hero section, implement "Draft Containers" for core sections. Each section should have a distinct visual background separation (Subtle shifts between `#000000` and `#0B0F19` to provide depth).
+- **Required Sections:**
+  - **About Me Summary:** A concise, high-impact summary block.
+  - **Skills Overview:** A visual grid representation of primary skills.
+  - **Experience Highlight:** A condensed timeline or feature card.
+- **Navigation Interaction:** Clicking a link in the Navigation Bar must trigger a smooth scroll to the corresponding section ID (`#about`, `#skills`, `#exp`).
+
 ## 4. Technical Constraints
 - **Logo Asset:** Transition raw `.png` logos into inline or component-driven SVGs to prevent quality loss during pixelation toggles.
 - **Performance:** Ensure layout shifts (CLS) are minimized during initial load.
+- **Atomic CSS:** Use Utility Classes
+
+### 4.1. Acceptance Criteria
+- [x] **Smooth Scrolling:** Clicking nav items smoothly scrolls the page to the target section.
+- [x] **Section Separation:** Each section (About, Skills, Exp) is clearly defined and distinguishable during the scroll.
+- [x] **Performance:** The "Draft" sections do not trigger layout shifts during load.
+- [x] **Sticky Header:** The navigation bar remains sticky or accessible at the top of the viewport during the scroll process.
+
+## 5. Technical Implementation Guidelines for Sections
+- **Components:** Create individual components for each "Draft" in the Main page: `<AboutDraft />`, `<SkillsDraft />`, and `<ExperienceDraft />`. 
+- **Layout:** Use `scroll-behavior: smooth;` in the CSS globals.
+- **Containers:** Each section should be wrapped in a `<section>` tag with an appropriate ID for accessibility and navigation.
+- **Responsiveness:** Ensure that the "Drafts" stack vertically on mobile and potentially change grid layouts on desktop.

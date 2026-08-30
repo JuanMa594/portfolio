@@ -94,7 +94,7 @@ export function Terminal() {
             value={value}
             onChange={(event) => setValue(event.target.value)}
             className="w-full bg-transparent text-slate-100 outline-none placeholder:text-slate-600"
-            placeholder="Type a command..."
+            placeholder="Type /pixel and look what happens... Type /help to see what you can do"
             autoComplete="off"
             spellCheck="false"
           />

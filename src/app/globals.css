@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Elms Sans';
+  src: url('../assets/fonts/ElmsSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 1 999;
+  font-stretch: 1% 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('../assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 1 999;
+  font-stretch: 50% 150%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Pixel';
+  src: url('../assets/fonts/GeistPixel-Regular-VariableFont_ELSH.ttf') format('truetype');
+  font-weight: 400;
+  font-stretch: 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0F0F0F;
+  --foreground: #F8F9FA;
+  --surface: #1A1A1A;
+  --secondary: #1E222B;
+  --border-color: #232323;
+  --muted: #A0A0A0;
+  --primary: #0231BD;
+  --accent: #023BE6;
+  --accent-light: #cfd9f7;
+}
+
+:root.light {
+  --background: #F8F9FA;
+  --foreground: #0F0F0F;
+  --surface: #FFFFFF;
+  --secondary: #E9EBEF;
+  --border-color: #E2E2E2;
+  --muted: #55585F;
+  --primary: #023BE6;
+  --accent: #0231BD;
+  --accent-light: #cfd9f7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--foreground);
+  --color-surface: var(--surface);
+  --color-secondary: var(--secondary);
+  --color-border: var(--border-color);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --font-sans: 'Elms Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono: 'Geist Pixel', 'Inconsolata', 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
