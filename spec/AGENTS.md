@@ -1,7 +1,7 @@
 # Portfolio — Specification
 
 ## Overview
-Personal developer portfolio for JuanMa594, showcasing GitHub projects, experience, and skills. Built with React + TypeScript and deployed on Vercel.
+Personal developer portfolio for JuanMa594, showcasing GitHub projects, experience, and skills. Built with React + TypeScript and deployed on Vercel. Use English Content evrytime.
 
 ---
 
@@ -84,6 +84,16 @@ portfolio
 │    ├── components/
 │    │    ├── Navbar.tsx
 │    │    ├── Hero.tsx
+│    │    ├── Terminal.tsx        # Interactive CLI: dispatches through terminalCommands.ts
+│    │    ├── terminalCommands.ts # Terminal command registry (parse, handlers, help)
+│    │    ├── ThemeContext.tsx    # dark/light theme provider
+│    │    ├── CosmeticsContext.tsx # logo/font mode + accent shade easter-egg state
+│    │    ├── logoAssets.ts       # logo variant (mixed/pixel/serif) x theme lookup
+│    │    ├── About/
+│    │    │  ├── AboutMeSection.tsx  # id="about" wrapper: ProfileCard + PhotoGallery
+│    │    │  ├── ProfileCard.tsx     # bio, tag badges, profile photo
+│    │    │  ├── PhotoGallery.tsx    # responsive grid of GalleryCard
+│    │    │  └── GalleryCard.tsx     # hover/tap caption-overlay photo tile
 │    │    └── Projects/
 │    │    │  ├── Skills.tsx
 │    │    │  ├── ProjectCard.tsx
@@ -98,7 +108,10 @@ portfolio
 │    │    ├── github.ts           # GitHub API response types
 │    ├── data/
 │    │    ├── experience.ts       # static experience data
-│    │    └── skills.ts           # static skills data
+│    │    ├── skills.ts           # static skills data
+│    │    ├── socials.ts          # GitHub/LinkedIn/email links (used by /socials)
+│    │    ├── quotes.ts           # quote pool for /quote
+│    │    └── about.ts            # bio, tags & gallery items for the About Me section
 │    ├── api/                      # Vercel Serverless Functions Folder
 │    │    ├── github.ts             # Retrieve the repos securely using the hidden TOKEN
 │    │    └── contact.ts            # Submit the form (Resend / EmailJS)

@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from './ThemeContext';
-import LogoForDark from '../assets/Logos/Logo_mixed_BLACK.svg';
-import LogoForLight from '../assets/Logos/Logo_mixed_WHITE.svg';
+import { useCosmetics } from './CosmeticsContext';
+import { getLogoSrc } from './logoAssets';
 
 const NAV_ITEMS = [
   { name: 'Home', href: '#home' },
@@ -16,6 +16,7 @@ const NAV_ITEMS = [
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
+  const { logoFontMode } = useCosmetics();
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export function Header() {
       <nav className="flex items-center justify-between">
         <Link href="#home" className="flex items-center gap-2 group">
           <Image
-            src={theme === 'dark' ? LogoForDark : LogoForLight}
+            src={getLogoSrc(logoFontMode, theme)}
             alt="JM"
             className="h-8 w-8 object-contain transition-transform group-hover:scale-110"
           />
@@ -65,7 +66,7 @@ export function Header() {
                 href={item.href}
                 className={`relative rounded-full px-4 py-2 text-sm transition ${
                   isActive
-                    ? 'bg-muted/15 text-accent-light'
+                    ? `bg-muted/15 ${theme === 'dark' ? 'text-accent-light' : 'text-accent'}`
                     : 'text-muted hover:bg-ink/5 hover:text-ink'
                 }`}
               >

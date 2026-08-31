@@ -11,6 +11,8 @@ _Key product features:_
 1. **Project Showcase** — Uses the GitHub API to display public repositories, filterable by language and topic; excludes forks by default.
 2. **Professional Profile** — Static sections for work experience (company, role, dates, responsibilities) and skills grouped by category.
 3. **Contact Form** — A form (name, email, message) submitted via a serverless function on Vercel.
+4. **Interactive Terminal** — A CLI-style command bar in the hero section with real section navigation (`-info` summaries or scroll-to on commands like `/about`, `/skills`, `/exp`), and a set of personality/easter-egg commands (logo + font swap chain via `/pixel`/`/serif`/`/reset`, blue-shade accent cycling via `/accent`, `/matrix`, `/quote`, `/coffee`, `/whoami`, `/socials`, `/sudo`) that give the site a distinct developer-tool identity.
+5. **About Me Section** — A personal introduction below the hero (`#about`): a profile card with bio and photo, plus a hover/tap photo gallery of personal interests, giving visitors a sense of who's behind the portfolio beyond the resume facts.
 
 ## Who It’s For
 

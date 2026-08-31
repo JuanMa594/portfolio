@@ -1,7 +1,7 @@
 import { MainLayout } from '../components/MainLayout';
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
-import { AboutDraft } from '../components/AboutDraft';
+import { AboutMeSection } from '../components/About/AboutMeSection';
 import { SkillsDraft } from '../components/SkillsDraft';
 import { ExperienceDraft } from '../components/ExperienceDraft';
 
@@ -10,7 +10,7 @@ export default function Page() {
     <MainLayout>
       <Header />
       <Hero />
-      <AboutDraft />
+      <AboutMeSection />
       <SkillsDraft />
       <ExperienceDraft />
     </MainLayout>

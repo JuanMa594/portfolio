@@ -51,6 +51,28 @@
   --accent-light: #cfd9f7;
 }
 
+:root.pixel-mode {
+  --font-sans: 'Geist Pixel', 'Inconsolata', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+:root.accent-ice {
+  --primary: #2F6FED;
+  --accent: #4C8DFF;
+  --accent-light: #d7e6ff;
+}
+
+:root.accent-royal {
+  --primary: #1B0F8C;
+  --accent: #3416B8;
+  --accent-light: #ded6f9;
+}
+
+:root.accent-midnight {
+  --primary: #050B2E;
+  --accent: #0B1F66;
+  --accent-light: #c7cdea;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -77,4 +99,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@keyframes matrix-fall {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(220%);
+    opacity: 0;
+  }
+}
+
+.matrix-column {
+  position: absolute;
+  top: 0;
+  animation: matrix-fall linear infinite;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.1rem;
+  opacity: 0.8;
+  white-space: pre;
 }
