@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useCosmetics } from './CosmeticsContext';
 import { useTheme } from './ThemeContext';
+import { useProjectsFilter } from './Projects/ProjectsFilterContext';
 import { COMMANDS, parseInput, type CommandContext, type CommandOutput } from './terminalCommands';
 
 type TerminalLine = {
@@ -38,6 +39,7 @@ function toLines(output: CommandOutput): string[] {
 export function Terminal() {
   const cosmetics = useCosmetics();
   const { theme, toggleTheme } = useTheme();
+  const { setActiveFilter } = useProjectsFilter();
   const [value, setValue] = useState('');
   const [lines, setLines] = useState<TerminalLine[]>([
     { id: 0, value: 'Welcome. Type /help to see available commands.', type: 'output' },
@@ -102,6 +104,7 @@ export function Terminal() {
       toggleTheme,
       scrollToSection: (id) => document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth' }),
       triggerMatrix,
+      setProjectFilter: setActiveFilter,
     };
 
     const outputLines = toLines(command.run(parsed, ctx));

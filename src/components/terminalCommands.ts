@@ -1,6 +1,8 @@
 import { SOCIALS } from '../data/socials';
 import { QUOTES } from '../data/quotes';
 import { ABOUT_BIO } from '../data/about';
+import { SKILL_CATEGORIES } from '../data/skills';
+import { getTechMeta, normalizeTechKey } from '../data/techIcons';
 import type { useCosmetics } from './CosmeticsContext';
 import type { Theme } from './logoAssets';
 
@@ -18,6 +20,7 @@ export interface CommandContext {
   toggleTheme: () => void;
   scrollToSection: (id: string) => void;
   triggerMatrix: () => void;
+  setProjectFilter: (filter: string) => void;
 }
 
 export type CommandOutput = string | string[] | void;
@@ -48,8 +51,6 @@ function makeSectionCommand(id: string, description: string, infoLines: string[]
     },
   };
 }
-
-const SKILL_CATEGORIES = ['Frontend', 'Backend', 'Automatización', 'Herramientas'];
 
 const coffeeCmd: CommandDef = {
   description: '/coffee — brewing status',
@@ -97,15 +98,30 @@ export const COMMANDS: Record<string, CommandDef> = {
     ABOUT_BIO.intro,
     ...ABOUT_BIO.paragraphs,
   ]),
-  skills: makeSectionCommand('skills', '/skills [-info] — scroll to Projects/Skills, or print a summary', [
-    'Skills (stub — full data ships with feature 003 · Projects/Skills):',
-    ...SKILL_CATEGORIES.map((cat) => `  ${cat.padEnd(16)} [##########] stub`),
-    'Real levels & tags land once data/skills.ts exists.',
+  skills: makeSectionCommand('skills', '/skills [-info] — scroll to Skills, or print a summary', [
+    'Skills:',
+    ...SKILL_CATEGORIES.map((cat) => `  ${cat.title.padEnd(24)} (${cat.keys.length})`),
   ]),
-  projects: makeSectionCommand('skills', '/projects [-info|--top] — scroll to Projects/Skills, or list top projects', [
-    'Top Projects (stub — full GitHub-sourced list ships with feature 003):',
-    `Check ${SOCIALS[0].value} in the meantime.`,
-  ]),
+  projects: {
+    description: '/projects [-info] [--filter=tag] — scroll to Projects, or list highlighted repos',
+    run: (parsed, ctx) => {
+      if (parsed.flags.includes('info')) {
+        return ['Top Projects — pulled live from GitHub:', `Check ${SOCIALS[0].value} in the meantime.`];
+      }
+
+      const filterFlag = parsed.flags.find((flag) => flag.startsWith('filter='));
+      if (filterFlag) {
+        const rawValue = filterFlag.slice('filter='.length);
+        const label = getTechMeta(normalizeTechKey(rawValue)).label;
+        ctx.setProjectFilter(label);
+        ctx.scrollToSection('projects');
+        return `Filtering projects by "${label}"...`;
+      }
+
+      ctx.scrollToSection('projects');
+      return 'Scrolling to #projects...';
+    },
+  },
   exp: makeSectionCommand('exp', '/exp [-info] — scroll to Experience, or print a summary', [
     'Experience (stub — full list ships with feature 004):',
     'A few roles building and automating web products — details land with the Experience feature.',

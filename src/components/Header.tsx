@@ -2,21 +2,18 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useTheme } from './ThemeContext';
-import { useCosmetics } from './CosmeticsContext';
-import { getLogoSrc } from './logoAssets';
+import { AnimatedLogo } from './AnimatedLogo';
 
 const NAV_ITEMS = [
   { name: 'Home', href: '#home' },
   { name: 'About Me', href: '#about' },
-  { name: 'Projects/Skills', href: '#skills' },
+  { name: 'Projects/Skills', href: '#projects' },
   { name: 'Exp.', href: '#exp' },
 ];
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
-  const { logoFontMode } = useCosmetics();
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
@@ -46,11 +43,7 @@ export function Header() {
     <header className="sticky top-0 z-50 mx-auto w-full max-w-6xl px-5 py-6">
       <nav className="flex items-center justify-between">
         <Link href="#home" className="flex items-center gap-2 group">
-          <Image
-            src={getLogoSrc(logoFontMode, theme)}
-            alt="JM"
-            className="h-8 w-8 object-contain transition-transform group-hover:scale-110"
-          />
+          <AnimatedLogo alt="JM" wrapperClassName="h-8 w-8 transition-transform group-hover:scale-110" gap={2} />
           <span className="text-xl font-bold tracking-tight text-ink">
             JuanMa<span className="text-accent">.</span>
           </span>

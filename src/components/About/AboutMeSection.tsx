@@ -19,7 +19,7 @@ export function AboutMeSection() {
 
         <div>
           <h3 className="text-xl font-semibold">A Few Things I Love</h3>
-          <p className="mt-2 text-sm opacity-60">[Optional: a short intro line for the gallery below]</p>
+          <p className="mt-2 text-sm opacity-60">Here are some of the things that bring me joy outside of coding.</p>
           <div className="mt-6">
             <PhotoGallery />
           </div>
