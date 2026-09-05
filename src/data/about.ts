@@ -14,10 +14,10 @@ export interface AboutBio {
 }
 
 export const ABOUT_BIO: AboutBio = {
-  intro: '[Bio: one-line intro that expands on "Software & Automation developer" from the hero]',
+  intro: 'Software & Automation developer passionate about Artificial Intelligence, Process Automation, Digital Transformation, and Cibersecurity',
   paragraphs: [
-    '[Bio: 2-3 sentences on your professional background — what you build, the problems you like solving]',
-    '[Bio: what drives your passion for tech / your personal ethos]',
+    'Experienced in developing intelligent applications and AI-powered assistants using Microsoft Copilot Studio, local LLMs, Python, C#, SQL, Power Automate, and Microsoft 365 technologies. I standout for my quick learning, adaptability, and teamwork, and I have a strong interest in continuing to develop technological solutions. I also have advanced English skills.',
+    'My passion for technology comes from a genuine curiosity about how things work. I enjoy exploring new tools, understanding the mechanisms behind them, and staying ahead of emerging trends. What motivates me most is the ability to learn continuously and transform new ideas into practical solutions that improve the way people work and collaborate.',
   ],
 };
 
