@@ -21,7 +21,7 @@ export const ABOUT_BIO: AboutBio = {
   ],
 };
 
-export const PROFILE_TAGS: string[] = ['Full-Stack', 'Automation', 'Problem Solver'];
+export const PROFILE_TAGS: string[] = ['Full-Stack', 'Automation', 'Problem Solver', 'AI Enthusiast', 'Team Player', 'Continuous Learner', 'Tech Explorer'];
 
 export const PROFILE_PHOTO: StaticImageData = profile;
 
