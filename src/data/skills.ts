@@ -22,6 +22,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       'pyside',
       'pytorch',
       'sqlite',
+      'chromadb',
     ],
   },
   {

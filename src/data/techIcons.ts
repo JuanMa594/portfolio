@@ -32,6 +32,7 @@ import { DiMsqlServer } from 'react-icons/di';
 import { FaJava } from "react-icons/fa";
 import codexMark from '../assets/techIcons/codex.png';
 import powerPlatformMark from '../assets/techIcons/power-platform.png';
+import chromadbMark from '../assets/techIcons/chroma.png';
 
 export interface TechMeta {
   label: string;
@@ -59,7 +60,7 @@ export function normalizeTechKey(raw: string): string {
 }
 
 // Not every tool has a single-color vector mark available. Trademark-restricted logos
-// like Java/C# fall back to a short text badge; Codex/Power Platform use `maskImage`
+// like C# fall back to a short text badge; Codex/Power Platform/ChromaDB use `maskImage`
 // instead, since no matching icon exists in the icon-font libraries above.
 export const TECH_META: Record<string, TechMeta> = {
   python: { label: 'Python', icon: SiPython },
@@ -81,6 +82,7 @@ export const TECH_META: Record<string, TechMeta> = {
   pyside: { label: 'PySide', icon: SiQt },
   pytorch: { label: 'PyTorch', icon: SiPytorch },
   sqlite: { label: 'SQLite', icon: SiSqlite },
+  chromadb: { label: 'ChromaDB', maskImage: chromadbMark },
 
   docker: { label: 'Docker', icon: SiDocker },
   n8n: { label: 'n8n', icon: SiN8N },
