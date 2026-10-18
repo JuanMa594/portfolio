@@ -9,7 +9,7 @@ export async function ProjectsSection() {
       <div className="mx-auto max-w-5xl">
         <h2 className="text-3xl font-semibold sm:text-4xl">Projects</h2>
         <p className="mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg">
-          A few things I&apos;ve built, pulled live from GitHub.
+          A few things I&apos;ve built.
         </p>
 
         <div className="mt-12">

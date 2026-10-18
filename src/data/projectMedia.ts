@@ -12,6 +12,14 @@ import HospitalAlerts from '../assets/projects/Hospital/Image4(Alerts).png';
 import HospitalSales from '../assets/projects/Hospital/Image5(Sales).png';
 import HospitalSuppliers from '../assets/projects/Hospital/Image6(Suppliers).png';
 
+import StreamingHome from '../assets/projects/Streaming/Home.png';
+import StreamingSearchAll from '../assets/projects/Streaming/Search_TODO.png';
+import StreamingSearchSongs from '../assets/projects/Streaming/Search_songs.png';
+import StreamingLibrary from '../assets/projects/Streaming/Library.png';
+import StreamingPlaylist from '../assets/projects/Streaming/Playlist.png';
+import StreamingStatistics from '../assets/projects/Streaming/Statistycs.png';
+import StreamingSettings from '../assets/projects/Streaming/Settings.png';
+
 export interface GalleryImage {
   src: StaticImageData;
   caption: string;
@@ -30,6 +38,17 @@ export interface ProjectMedia {
  * Repos without an entry here simply render without a logo/gallery/note, as before.
  */
 export const PROJECT_MEDIA: Record<string, ProjectMedia> = {
+  Streaming: {
+    gallery: [
+      { src: StreamingHome, caption: 'Home' },
+      { src: StreamingSearchAll, caption: 'Search — all results' },
+      { src: StreamingSearchSongs, caption: 'Search — songs' },
+      { src: StreamingLibrary, caption: 'Library' },
+      { src: StreamingPlaylist, caption: 'Playlist' },
+      { src: StreamingStatistics, caption: 'Listening statistics' },
+      { src: StreamingSettings, caption: 'Settings' },
+    ],
+  },
   ProyectoRickYMorty: {
     logo: RickYMortyLogo,
     gallery: [

@@ -103,10 +103,10 @@ export const COMMANDS: Record<string, CommandDef> = {
     ...SKILL_CATEGORIES.map((cat) => `  ${cat.title.padEnd(24)} (${cat.keys.length})`),
   ]),
   projects: {
-    description: '/projects [-info] [--filter=tag] — scroll to Projects, or list highlighted repos',
+    description: '/projects [-info] [--filter=tag] — scroll to Projects, or list highlighted projects',
     run: (parsed, ctx) => {
       if (parsed.flags.includes('info')) {
-        return ['Top Projects — pulled live from GitHub:', `Check ${SOCIALS[0].value} in the meantime.`];
+        return ["Top Projects — a few things I've built:", `Check ${SOCIALS[0].value} in the meantime.`];
       }
 
       const filterFlag = parsed.flags.find((flag) => flag.startsWith('filter='));

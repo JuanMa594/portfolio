@@ -13,9 +13,15 @@ interface ProjectsGridProps {
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
   const { activeFilter } = useProjectsFilter();
 
-  const tags = Array.from(
-    new Set(projects.flatMap((project) => project.techKeys.map((key) => getTechMeta(key).label)))
-  );
+  // Only techs shared by 2+ projects become filter chips; each card lists its own full stack.
+  const projectCountByTag = new Map<string, number>();
+  for (const project of projects) {
+    for (const key of project.techKeys) {
+      const label = getTechMeta(key).label;
+      projectCountByTag.set(label, (projectCountByTag.get(label) ?? 0) + 1);
+    }
+  }
+  const tags = [...projectCountByTag].filter(([, count]) => count > 1).map(([label]) => label);
 
   const visibleProjects =
     activeFilter === ALL_FILTER
