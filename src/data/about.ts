@@ -6,7 +6,7 @@ import diving from '../assets/about/diving.jpeg';
 import fcBarcelona from '../assets/about/fc-barcelona.jpeg';
 import photography from '../assets/about/photography.jpeg';
 import piano from '../assets/about/piano.jpeg';
-import cine from '../assets/about/cine.jpg';
+import cine from '../assets/about/ChristopherNolan.jpeg';
 
 export interface AboutBio {
   intro: string;
