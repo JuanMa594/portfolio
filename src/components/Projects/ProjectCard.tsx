@@ -5,8 +5,7 @@ import Image from 'next/image';
 import { FiExternalLink, FiGitBranch, FiGithub, FiImage, FiLock, FiStar, FiUsers } from 'react-icons/fi';
 import type { FeaturedProject } from '../../lib/github';
 import { PROJECT_ICONS } from '../../data/projectIcons';
-import { getTechMeta } from '../../data/techIcons';
-import { MaskIcon } from '../MaskIcon';
+import { TechBadge } from '../TechBadge';
 import { ProjectModal } from './ProjectModal';
 
 interface ProjectCardProps {
@@ -54,24 +53,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {project.techKeys.length > 0 && (
         <div className="flex flex-wrap gap-2">
-          {project.techKeys.map((key) => {
-            const { label, icon: Icon, maskImage, short } = getTechMeta(key);
-            return (
-              <span
-                key={key}
-                title={label}
-                className="flex h-7 w-7 items-center justify-center rounded-lg border border-ink/10 bg-background text-muted"
-              >
-                {Icon ? (
-                  <Icon size={14} aria-hidden />
-                ) : maskImage ? (
-                  <MaskIcon src={maskImage} size={14} />
-                ) : (
-                  <span className="font-mono text-[9px]">{short ?? label.slice(0, 2)}</span>
-                )}
-              </span>
-            );
-          })}
+          {project.techKeys.map((key) => (
+            <TechBadge key={key} techKey={key} />
+          ))}
         </div>
       )}
 

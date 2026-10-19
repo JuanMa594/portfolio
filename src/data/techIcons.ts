@@ -42,6 +42,7 @@ import {
 import { VscVscodeInsiders } from 'react-icons/vsc';
 import { DiMsqlServer } from 'react-icons/di';
 import { FaJava } from "react-icons/fa";
+import { PiMicrosoftExcelLogoFill } from 'react-icons/pi';
 import codexMark from '../assets/techIcons/codex.png';
 import powerPlatformMark from '../assets/techIcons/power-platform.png';
 import chromadbMark from '../assets/techIcons/chroma.png';
@@ -113,6 +114,9 @@ export const TECH_META: Record<string, TechMeta> = {
   hono: { label: 'Hono', icon: SiHono },
   zod: { label: 'Zod', icon: SiZod },
   drizzle: { label: 'Drizzle ORM', icon: SiDrizzle },
+  copilotstudio: { label: 'Copilot Studio', short: 'CS' },
+  localllms: { label: 'Local LLMs', short: 'LLM' },
+  excel: { label: 'Excel', icon: PiMicrosoftExcelLogoFill },
 
   docker: { label: 'Docker', icon: SiDocker },
   n8n: { label: 'n8n', icon: SiN8N },

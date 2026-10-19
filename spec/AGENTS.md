@@ -177,3 +177,13 @@ Keynote: Constitution rules; so if a feature compete with `mission.md` or `tech-
 - Multi-language (i18n)
 - CMS integration
 
+---
+
+## Pending (to be folded into a feature spec before implementing)
+
+Not started. Do not implement until it has a `features/NNN-feature-name/` spec; Feature 004 (Experience & Education) is the planned home for both.
+
+- **Contact section** — `src/data/socials.ts` still holds `TODO` placeholders for the LinkedIn URL and email (GitHub is set). Needs: a Contact section after Experience (links to GitHub, LinkedIn and `mailto:`), a "Contact" item in the Header nav, and `socials.ts` as the single source of data (the terminal `/socials` reads it too). Note: the "Contact" section above describes a form; reconcile in the spec (form vs. links-only).
+- **CV download** — "Download CV" button pointing to a PDF in `public/` (e.g. `public/cv/JuanMa-CV.pdf`, linked with the `download` attribute), reusing one component in three places: Hero, Experience & Education, and Contact. The PDF itself is not available yet; check which personal data it exposes (phone, address) before publishing.
+- **Experience & Education** — the current `ExperienceDraft.tsx` becomes a two-block timeline: Experience (role, company, dates, bullets) and Education (degree, institution, years, optional certifications). Studies are included on purpose.
+

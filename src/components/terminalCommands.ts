@@ -2,6 +2,8 @@ import { SOCIALS } from '../data/socials';
 import { QUOTES } from '../data/quotes';
 import { ABOUT_BIO } from '../data/about';
 import { SKILL_CATEGORIES } from '../data/skills';
+import { EXPERIENCE } from '../data/experience';
+import { EDUCATION } from '../data/education';
 import { getTechMeta, normalizeTechKey } from '../data/techIcons';
 import type { useCosmetics } from './CosmeticsContext';
 import type { Theme } from './logoAssets';
@@ -122,9 +124,11 @@ export const COMMANDS: Record<string, CommandDef> = {
       return 'Scrolling to #projects...';
     },
   },
-  exp: makeSectionCommand('exp', '/exp [-info] — scroll to Experience, or print a summary', [
-    'Experience (stub — full list ships with feature 004):',
-    'A few roles building and automating web products — details land with the Experience feature.',
+  exp: makeSectionCommand('exp', '/exp [-info] — scroll to Experience & Education, or print a summary', [
+    'Experience:',
+    ...EXPERIENCE.map((job) => `  ${job.role} — ${job.company} (${job.dateRange})`),
+    'Education:',
+    ...EDUCATION.map((study) => `  ${study.degree} — ${study.institution} (${study.dateRange})`),
   ]),
 
   whoami: {

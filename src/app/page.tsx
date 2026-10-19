@@ -4,7 +4,7 @@ import { Hero } from '../components/Hero';
 import { AboutMeSection } from '../components/About/AboutMeSection';
 import { ProjectsSection } from '../components/Projects/ProjectsSection';
 import { SkillsSection } from '../components/Skills/SkillsSection';
-import { ExperienceDraft } from '../components/ExperienceDraft';
+import { ExperienceEducationSection } from '../components/Experience/ExperienceEducationSection';
 
 export default function Page() {
   return (
@@ -14,7 +14,7 @@ export default function Page() {
       <AboutMeSection />
       <ProjectsSection />
       <SkillsSection />
-      <ExperienceDraft />
+      <ExperienceEducationSection />
     </MainLayout>
   );
 }

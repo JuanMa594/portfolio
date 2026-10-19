@@ -58,7 +58,8 @@ src/
 ## Data Models / Domains
 
 - `GitHubRepo` — fields: `name`, `description`, `html_url`, `language`, `stargazers_count`, `topics: string[]`, `fork: boolean`. Source: GitHub API. `fork` controls default visibility filter.
-- `ExperienceEntry` — fields: `company: string`, `role: string`, `dateRange: string`, `bullets: string[]`. Static data in `data/experience.ts`.
+- `ExperienceItem` — fields: `id`, `company`, `role`, `location`, `dateRange`, `bullets: string[]` (achievements), `techKeys: string[]`, optional `logo`. Static data in `data/experience.ts`; types in `types/experience.ts`.
+- `EducationItem` — fields: `id`, `degree`, `institution`, `dateRange`, `type: 'higher_ed' | 'technical' | 'high_school'`, `description`, optional `logo`, optional `current`. Static data in `data/education.ts`.
 - `Skill` — fields: `name: string`, `category: 'Frontend' | 'Backend' | 'Tools' | string`. Static data in `data/skills.ts`.
 
 ## Conventions
