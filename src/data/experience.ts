@@ -11,9 +11,9 @@ export const EXPERIENCE: ExperienceItem[] = [
     bullets: [
       'Automated manual processes with Power Automate flows, freeing the team from repetitive tasks.',
       'Built macros and automated scripts that let the team query data and fill Excel fields faster, with fewer typos and a traceable result.',
-      'Developed AI tools with Copilot Studio and local AI models that analyze Excel files in depth and generate diagrams and flows from the results.',
+      'Developed AI tools with Copilot Studio and local AI models that analyze Excel files, or meeting transcriptions in depth and generate diagrams and flows from the results.',
     ],
-    techKeys: ['powerplatform', 'copilotstudio', 'localllms', 'excel'],
+    techKeys: ['powerplatform', 'localllms', 'excel', 'python', 'sqlite'],
     logo: summaLogo,
   },
 ];

@@ -21,6 +21,10 @@ export function Header() {
       (el): el is HTMLElement => el !== null
     );
 
+    // The observer's first callback reports the initial viewport, before the browser has scrolled
+    // to a hash in the URL (e.g. /#exp). Syncing then would erase that hash, so it is skipped.
+    let isFirstCallback = true;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -29,7 +33,18 @@ export function Header() {
 
         if (visible) {
           setActiveSection(visible.target.id);
+
+          if (!isFirstCallback) {
+            // replaceState: scrolling must not add a history entry per section, and it never scrolls.
+            const { pathname, search } = window.location;
+            const hash = visible.target.id === 'home' ? '' : `#${visible.target.id}`;
+            if (window.location.hash !== hash) {
+              window.history.replaceState(null, '', `${pathname}${search}${hash}`);
+            }
+          }
         }
+
+        isFirstCallback = false;
       },
       { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
     );
