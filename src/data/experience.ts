@@ -9,11 +9,13 @@ export const EXPERIENCE: ExperienceItem[] = [
     location: 'Sabaneta, Colombia',
     dateRange: 'Apr 2026 – Oct 2026 · 6 months',
     bullets: [
-      'Automated manual processes with Power Automate flows, freeing the team from repetitive tasks.',
-      'Built macros and automated scripts that let the team query data and fill Excel fields faster, with fewer typos and a traceable result.',
-      'Developed AI tools with Copilot Studio and local AI models that analyze Excel files, or meeting transcriptions in depth and generate diagrams and flows from the results.',
+      'Built document-management and reporting apps for the GI and GH teams, merging loose Python scripts into one tool that finds files and generates folders and Excel reports from the database.',
+      'Developed local-AI tools: a slide generator based on the corporate template, and a meeting assistant with transcription, diarization and Q&A.',
+      'Created a multi-agent app that turns a Teams transcript into a process discovery card, KPIs, risks, automation ideas and a BPMN diagram.',
+      'Built a Copilot Studio agent for internal documentation and process questions.',
+      'Automated manual work with Power Automate flows, macros and scripts, with fewer typos and traceable results.',
     ],
-    techKeys: ['powerplatform', 'localllms', 'excel', 'python', 'sqlite'],
+    techKeys: ['powerplatform', 'localllms', 'excel', 'python', 'sqlite', 'pytorch', 'chromadb'],
     logo: summaLogo,
   },
 ];

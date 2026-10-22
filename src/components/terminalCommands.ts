@@ -1,4 +1,4 @@
-import { SOCIALS } from '../data/socials';
+import { CONTACT } from '../data/contact';
 import { QUOTES } from '../data/quotes';
 import { ABOUT_BIO } from '../data/about';
 import { SKILL_CATEGORIES } from '../data/skills';
@@ -74,7 +74,7 @@ export const COMMANDS: Record<string, CommandDef> = {
       const lines = [
         'Available commands:',
         '  /home, /about, /skills, /projects, /exp   -> add -info for a summary (default scrolls there)',
-        '  /whoami, /socials, /quote, /coffee (/brew), /sudo, /theme',
+        '  /whoami, /contact, /quote, /coffee (/brew), /sudo, /theme',
         '  /clear (/cls), /matrix, /accent',
       ];
 
@@ -108,7 +108,7 @@ export const COMMANDS: Record<string, CommandDef> = {
     description: '/projects [-info] [--filter=tag] — scroll to Projects, or list highlighted projects',
     run: (parsed, ctx) => {
       if (parsed.flags.includes('info')) {
-        return ["Top Projects — a few things I've built:", `Check ${SOCIALS[0].value} in the meantime.`];
+        return ["Top Projects — a few things I've built:", `Check ${CONTACT[0].value} in the meantime.`];
       }
 
       const filterFlag = parsed.flags.find((flag) => flag.startsWith('filter='));
@@ -135,9 +135,9 @@ export const COMMANDS: Record<string, CommandDef> = {
     description: '/whoami — who runs this terminal',
     run: () => 'JuanMa — Software & Automation developer.',
   },
-  socials: {
-    description: '/socials — GitHub, LinkedIn and email',
-    run: () => SOCIALS.map((s) => `${s.label}: ${s.value}`),
+  contact: {
+    description: '/contact — professional ways to reach me (GitHub, LinkedIn, email)',
+    run: () => CONTACT.map((link) => `${link.label}: ${link.value}`),
   },
   quote: {
     description: '/quote — a random programming/automation quote',
