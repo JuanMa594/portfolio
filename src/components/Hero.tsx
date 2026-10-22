@@ -1,5 +1,6 @@
 import { Terminal } from './Terminal';
 import { HeroLogo } from './HeroLogo';
+import { DownloadCvButton } from './DownloadCvButton';
 
 export function Hero() {
   return (
@@ -23,6 +24,8 @@ export function Hero() {
         <div className="mt-10">
           <Terminal />
         </div>
+
+        <DownloadCvButton className="mt-6" />
       </div>
 
       <HeroLogo />

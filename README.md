@@ -41,6 +41,19 @@ bun run start
 ```
 For architecture and feature development, check the /spec folder.
 
+## Environment variables
+
+The contact form (`POST /api/contact`) sends email through [Resend](https://resend.com). Copy `.env.example` to `.env.local` and fill in:
+
+| Variable | Purpose |
+|---|---|
+| `RESEND_API_KEY` | Resend API key (server-only) |
+| `CONTACT_TO_EMAIL` | Inbox that receives the messages |
+| `CONTACT_FROM_EMAIL` | Sender address (`onboarding@resend.dev` until a domain is verified) |
+| `SITE_URL` | Production origin allowed to call the endpoint, no trailing slash |
+
+Set the same variables in the Vercel dashboard for production.
+
 ## Deploying the project
 
 ### Vercel

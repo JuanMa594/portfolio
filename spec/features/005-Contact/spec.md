@@ -25,7 +25,6 @@ This folds in the three "Pending" items listed in `spec/AGENTS.md` (Contact sect
 - One card/link per entry in `CONTACT` (`src/data/contact.ts`): GitHub, LinkedIn, Email. `contact.ts` is the single source of truth; the terminal `/contact` command reads it too.
 - Email opens `mailto:`; GitHub and LinkedIn open in a new tab (`target="_blank" rel="noopener noreferrer"`).
 - Each link shows its `react-icons` icon (already installed).
-- The `TODO` placeholders for LinkedIn and email must be replaced with real values before shipping (see §5).
 
 ### 3.2 Contact Form
 - Fields: **Name** (required, 2–100 chars), **Email** (required, valid format, ≤ 254 chars), **Message** (required, 10–2000 chars).
@@ -47,7 +46,7 @@ This folds in the three "Pending" items listed in `spec/AGENTS.md` (Contact sect
 ### 3.4 Download CV Button
 - One component (`DownloadCvButton`) reused in three places: Hero (next to the terminal), Experience & Education (under the heading) and Contact (left column).
 - Plain `<a href="/cv/<file>.pdf" download>`; no JavaScript needed.
-- **Blocked until the PDF is web-ready** (see §5): the current file is not suitable to publish as-is.
+- The path lives in `CV_PATH` (`src/data/contact.ts`); setting it to `null` hides all three buttons. File: `public/cv/JuanMa-CV.pdf`.
 
 ### 3.5 Site Integrations
 - **Header:** new nav item `{ name: 'Contact', href: '#contact' }`. Because the section is the last one, it must be able to reach the observer's active band (`-40% / -50%` rootMargin), so the URL hash and the nav highlight switch to `#contact` at the bottom of the page.
@@ -68,24 +67,20 @@ None of them use the `NEXT_PUBLIC_` prefix.
 
 ## 4. Acceptance Criteria
 - [ ] `#contact` section renders after `#exp` in `src/app/page.tsx`, responsive (2 columns from `md`, 1 on mobile), correct in dark and light mode.
-- [ ] Contact links come only from `src/data/contact.ts`; no `TODO` values remain.
-- [ ] A valid submission arrives in `CONTACT_TO_EMAIL` as plain text with `reply_to` set to the visitor's email, and a success toast is shown.
-- [ ] Invalid input shows inline errors and is also rejected by the server with `400`.
-- [ ] Requests from a foreign origin get `403`; a 4th submission from the same IP within 10 minutes gets `429`; a filled honeypot sends nothing.
-- [ ] No API key, visitor data or stack trace reaches the browser or the production logs.
-- [ ] "Download CV" works in Hero, Experience & Education and Contact, and downloads the approved PDF.
+- [x] Contact links come only from `src/data/contact.ts`; no `TODO` values remain.
+- [x] A valid submission arrives in `CONTACT_TO_EMAIL` as plain text with `reply_to` set to the visitor's email, and a success toast is shown.
+- [x] Invalid input shows inline errors and is also rejected by the server with `400`.
+- [x] Requests from a foreign origin get `403`; a 4th submission from the same IP within 10 minutes gets `429`; a filled honeypot sends nothing.
+- [x] No API key, visitor data or stack trace reaches the browser or the production logs.
+- [x] "Download CV" works in Hero, Experience & Education and Contact, and downloads the approved PDF.
 - [ ] Header shows "Contact"; scrolling to the bottom highlights it and sets the URL to `/#contact`.
-- [ ] `/contact` and `/contact -info` work in the terminal and appear in `/help`.
-- [ ] `bun run lint` and `bun run build` pass.
+- [x] `/contact` and `/contact -info` work in the terminal and appear in `/help`.
+- [x] `bun run lint` and `bun run build` pass.
 
-## 5. Open Items (must be resolved before shipping)
-1. **Real LinkedIn URL and email** for `contact.ts`. The current CV lists `www.linkedin.com/in/juan-manuel-usuga-galeano-00073437a` and `jmusuga1122@gmail.com`; confirm they are the ones to publish.
-2. **CV PDF is not web-ready.** `public/cv/JuanMa Hoja de Vida.pdf`:
-   - exposes two personal phone numbers, and the **names and phone numbers of two third-party references**, who have not agreed to be published on a public site;
-   - is in Spanish, while site content is English-only (`spec/AGENTS.md`);
-   - is outdated: it does not include the Summa SCI apprenticeship shown in `#exp`.
-   Needed: an English, up-to-date version without phone numbers or references, saved with a space-free name (e.g. `public/cv/JuanMa-CV.pdf`). The current file is already pushed on `origin/dev`; decide whether to remove it from the repo.
-3. **Resend account:** create the API key; optionally verify a domain to send from a custom address.
+## 5. Open Items
+1. ~~Real LinkedIn URL and email~~ — resolved: values taken from the CV (`jmusuga1122@gmail.com`, `linkedin.com/in/juan-manuel-usuga-galeano-00073437a`). The LinkedIn slug was read from an image (the PDF text layer has no link for it), so click it once to confirm it opens the right profile.
+2. ~~CV PDF not web-ready~~ — resolved: English CV published as `public/cv/JuanMa-CV.pdf`. Decision: WhatsApp (+57 310 7072333) is the only phone exposed, on purpose (calls can't reach it, which also limits spam). The CV still lists two references **by name and employer** (no phone numbers); that is the owner's call, but both people should be aware. The old Spanish CV, with all phones, remains in `origin/dev` git history.
+3. **Resend account:** create the API key and fill `.env.local` (still pending); optionally verify a domain to send from a custom address.
 
 ## 6. Out of Scope
 - CAPTCHA (honeypot + rate limit is enough for now).

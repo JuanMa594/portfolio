@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { name: 'About Me', href: '#about' },
   { name: 'Projects/Skills', href: '#projects' },
   { name: 'Exp.', href: '#exp' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 export function Header() {

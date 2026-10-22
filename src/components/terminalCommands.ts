@@ -73,8 +73,8 @@ export const COMMANDS: Record<string, CommandDef> = {
     run: (_parsed, ctx) => {
       const lines = [
         'Available commands:',
-        '  /home, /about, /skills, /projects, /exp   -> add -info for a summary (default scrolls there)',
-        '  /whoami, /contact, /quote, /coffee (/brew), /sudo, /theme',
+        '  /home, /about, /skills, /projects, /exp, /contact   -> add -info for a summary (default scrolls there)',
+        '  /whoami, /quote, /coffee (/brew), /sudo, /theme',
         '  /clear (/cls), /matrix, /accent',
       ];
 
@@ -124,6 +124,10 @@ export const COMMANDS: Record<string, CommandDef> = {
       return 'Scrolling to #projects...';
     },
   },
+  contact: makeSectionCommand('contact', '/contact [-info] — scroll to Contact, or list how to reach me', [
+    'Contact:',
+    ...CONTACT.map((link) => `  ${link.label}: ${link.value}`),
+  ]),
   exp: makeSectionCommand('exp', '/exp [-info] — scroll to Experience & Education, or print a summary', [
     'Experience:',
     ...EXPERIENCE.map((job) => `  ${job.role} — ${job.company} (${job.dateRange})`),
@@ -134,10 +138,6 @@ export const COMMANDS: Record<string, CommandDef> = {
   whoami: {
     description: '/whoami — who runs this terminal',
     run: () => 'JuanMa — Software & Automation developer.',
-  },
-  contact: {
-    description: '/contact — professional ways to reach me (GitHub, LinkedIn, email)',
-    run: () => CONTACT.map((link) => `${link.label}: ${link.value}`),
   },
   quote: {
     description: '/quote — a random programming/automation quote',

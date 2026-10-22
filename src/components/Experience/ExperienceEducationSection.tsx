@@ -2,6 +2,7 @@ import { EDUCATION } from '../../data/education';
 import { EXPERIENCE } from '../../data/experience';
 import { EducationTimeline } from './EducationTimeline';
 import { ExperienceCard } from './ExperienceCard';
+import { DownloadCvButton } from '../DownloadCvButton';
 import { Reveal } from './Reveal';
 
 export function ExperienceEducationSection() {
@@ -12,6 +13,8 @@ export function ExperienceEducationSection() {
         <p className="mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg">
           Where I&apos;ve worked and what I&apos;ve studied.
         </p>
+
+        <DownloadCvButton className="mt-6" />
 
         <div className="mt-14 flex flex-col gap-14">
           <div className="flex flex-col gap-6">

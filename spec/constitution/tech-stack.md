@@ -39,9 +39,7 @@ src/
 └── data/
 │    ├── experience.ts       # static experience data
 │    └── skills.ts           # static skills data
-└── api/                      # Vercel Serverless Functions Folder
-│    ├── github.ts             # Retrieve the repos securely using the hidden TOKEN
-│    └── contact.ts            # Submit the form (Resend / EmailJS)
+└── app/api/contact/route.ts  # Next.js Route Handler: submits the contact form via Resend
 └── App.tsx
 └── main.tsx
 ```

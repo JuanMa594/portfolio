@@ -5,6 +5,7 @@ import { AboutMeSection } from '../components/About/AboutMeSection';
 import { ProjectsSection } from '../components/Projects/ProjectsSection';
 import { SkillsSection } from '../components/Skills/SkillsSection';
 import { ExperienceEducationSection } from '../components/Experience/ExperienceEducationSection';
+import { ContactSection } from '../components/Contact/ContactSection';
 
 export default function Page() {
   return (
@@ -15,6 +16,7 @@ export default function Page() {
       <ProjectsSection />
       <SkillsSection />
       <ExperienceEducationSection />
+      <ContactSection />
     </MainLayout>
   );
 }
