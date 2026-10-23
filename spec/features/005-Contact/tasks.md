@@ -26,7 +26,7 @@
 
 - [ ] **Task 5: Site Integrations**
   - [x] Add `Contact` to `NAV_ITEMS` in `Header.tsx`.
-  - [ ] Check in the browser that the hash becomes `#contact` at the bottom of the page.
+  - [x] Checked in headless Chrome: at the bottom of the page the hash is `#contact` and "Contact" is highlighted; scrolling up goes through `#exp`, `#projects` (also while on Skills, via `SECTION_ALIASES` in `Header.tsx`), `#about` and the bare URL for Home.
   - [x] Add `/contact` (+ `-info`) to `terminalCommands.ts` and to `/help`.
   - [x] Place `DownloadCvButton` in Hero, Experience & Education and Contact.
 
@@ -35,7 +35,8 @@
   - [x] Happy path: a real submission was delivered to Gmail (confirmed by the developer).
   - [x] Server side via curl: invalid input / bad JSON / oversize / wrong content-type (`400`), foreign or missing origin (`403`), 4th submission (`429`), honeypot (`200`, nothing sent), missing env config (`500`, generic message).
   - [ ] Same checks through the form in the browser (inline errors, toast).
-  - [ ] Dark/light mode and mobile/desktop visual check.
+  - [x] Mobile (375 px, emulated): no horizontal overflow in Contact; fixed by `grid-cols-1` + `min-w-0` (without them the page was 564 px wide).
+  - [ ] Dark/light mode and desktop visual check.
 
 - [x] **Task 7: Docs**
   - [x] Move 005 to "Done" in `spec/constitution/roadmap.md`.

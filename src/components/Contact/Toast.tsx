@@ -32,7 +32,7 @@ export function Toast({ type, message, onClose }: ToastProps) {
     <div
       role="status"
       aria-live="polite"
-      className={`fixed bottom-6 right-6 z-50 flex max-w-sm items-start gap-3 rounded-2xl border bg-surface px-4 py-3 text-sm text-ink shadow-lg transition duration-300 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${
+      className={`fixed bottom-6 left-6 right-6 z-50 flex items-start sm:left-auto sm:max-w-sm gap-3 rounded-2xl border bg-surface px-4 py-3 text-sm text-ink shadow-lg transition duration-300 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${
         type === 'success' ? 'border-accent/40' : 'border-red-500/50'
       } ${isShown ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`}
     >

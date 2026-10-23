@@ -13,14 +13,18 @@ const NAV_ITEMS = [
   { name: 'Contact', href: '#contact' },
 ];
 
+// Sections without a nav item of their own that count as part of another one (Skills sits under "Projects/Skills").
+const SECTION_ALIASES: Record<string, string> = { skills: 'projects' };
+
 export function Header() {
   const { theme, toggleTheme } = useTheme();
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const sections = NAV_ITEMS.map((item) => document.getElementById(item.href.slice(1))).filter(
-      (el): el is HTMLElement => el !== null
-    );
+    const sectionIds = [...NAV_ITEMS.map((item) => item.href.slice(1)), ...Object.keys(SECTION_ALIASES)];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
 
     // The observer's first callback reports the initial viewport, before the browser has scrolled
     // to a hash in the URL (e.g. /#exp). Syncing then would erase that hash, so it is skipped.
@@ -33,12 +37,13 @@ export function Header() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (visible) {
-          setActiveSection(visible.target.id);
+          const sectionId = SECTION_ALIASES[visible.target.id] ?? visible.target.id;
+          setActiveSection(sectionId);
 
           if (!isFirstCallback) {
             // replaceState: scrolling must not add a history entry per section, and it never scrolls.
             const { pathname, search } = window.location;
-            const hash = visible.target.id === 'home' ? '' : `#${visible.target.id}`;
+            const hash = sectionId === 'home' ? '' : `#${sectionId}`;
             if (window.location.hash !== hash) {
               window.history.replaceState(null, '', `${pathname}${search}${hash}`);
             }

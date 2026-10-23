@@ -13,15 +13,16 @@ export function ContactSection() {
           Got a project, an opportunity or just a question? Send me a message or reach out directly.
         </p>
 
-        <div className="mt-12 grid gap-10 md:grid-cols-2">
-          <Reveal className="flex flex-col items-start gap-6">
+        {/* grid-cols-1 is minmax(0, 1fr): without it the column grows to the longest unbreakable text (the LinkedIn URL) and overflows phones. */}
+        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
+          <Reveal className="flex min-w-0 flex-col items-start gap-6">
             <div className="w-full">
               <ContactLinks />
             </div>
             <DownloadCvButton />
           </Reveal>
 
-          <Reveal delay={100}>
+          <Reveal delay={100} className="min-w-0">
             <ContactForm />
           </Reveal>
         </div>
